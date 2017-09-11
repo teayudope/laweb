@@ -1,0 +1,353 @@
+
+#fixed_header {
+    background-color: #fff;
+    z-index: 99;
+    width: 100%; /* hacemos que la cabecera ocupe el ancho completo de la página */
+    left: 0; /* Posicionamos la cabecera al lado izquierdo */
+    top: 0; /* Posicionamos la cabecera pegada arriba */
+    position: fixed; /* Hacemos que la cabecera tenga una posición fija */
+}
+
+body, #productos, #clientes, #nosotros, #servicios, #contacto, #proyectos {
+    padding-top: 102px;
+}
+
+.modal {
+    z-index: 9999;
+}
+
+.container.is-fluid {
+    margin: 0;
+}
+
+.section, #top_anchor, #top_menu {
+    max-width: 900px;
+    padding-right: 0;
+    padding-left: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#top_anchor {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    padding-top: 2px;
+    border-bottom: 2px solid #cecece;
+}
+
+#navMenu a {
+    font-weight: bold;
+    color: #192646
+}
+
+#navMenu a:hover {
+    font-weight: bold;
+    color: #e14d81
+}
+
+.nav-left .nav-item a:not(.button):hover, .nav-left a.nav-item:not(.button):hover {
+    color: #7a7a7a;
+}
+
+.has-text-primary,
+.nav-right .nav-item a:not(.button).is-active,.nav-right a.nav-item:not(.button).is-active,
+.nav-right .nav-item a:not(.button):hover, .nav-right a.nav-item:not(.button):hover {
+    color: #e14d81;
+}
+
+.menu-list a:hover {
+    background-color: #fff;
+    color: #e14d81;
+}
+
+#productos .menu-list a:hover {
+    color: #e14d81;
+    background-color: #b0afb5;
+}
+
+#productos .menu-list a.is-active {
+    background-color: #fff;
+    color: #7a7a7a;
+}
+
+#productos .menu-list a {
+    background-color: #b0afb5;
+    color: #fff;
+    margin: 4px 0;
+}
+
+
+
+
+.menu-sub {
+    border-right: 3px solid #dfdfdf;
+}
+
+#productos .menu-sub a{
+    border: 1px solid #fff;
+    text-align: center;
+    font-weight: bold;
+    background-color: #fff;
+    color: #7a7a7a;
+}
+
+#productos  .menu-sub a img {
+    padding: 8px;
+}
+
+#productos  .menu-sub a.is-active{
+    color: #7a7a7a;
+    background-color: #fff;
+    border: 1px solid #dfdfdf;
+}
+
+#productos  .menu-sub a.is-active img{
+    background-color: #e14d81;
+}
+
+#productos  .menu-sub a.is-active:hover {
+    border: 1px solid #dfdfdf;
+    background-color: #fff;
+    color: #e14d81;
+}
+
+#productos  .menu-sub a:hover{
+    border: 1px solid #dfdfdf;
+    color: #e14d81;
+    background-color: #fff;
+}
+
+.box {
+    font-size: 0.8rem;
+}
+
+.box .box-image {
+    text-align: center;
+}
+
+.box .desc{
+    line-height: 1 !important;
+    font-size: 0.7em;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.box .empresa{
+    float: left;
+    position: relative;
+    font-weight: bold;
+}
+
+
+.box .ver_mas{
+    text-align: right;
+}
+
+.section small{
+
+    font-size: 0.7em;
+}
+
+.section .socials a{
+    margin-right: 6px;
+    color: #7a7a7a;
+}
+
+.section .payment span{
+    margin-right: 6px;
+    color: #7a7a7a;
+}
+
+.head-top a{
+    color: #7a7a7a;
+}
+
+hr {
+    background-color: #fafafa;
+    height: 2px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.slider { width: 100%; padding-bottom: 25%; }
+.slider img { width: 100%; }
+.wrapper { width: 100%; margin: 0; }
+@media only screen and (min-width: 1024px) {
+    .wrapper { width: 100%; margin: auto; }
+}
+
+.submenu {
+    display: none;
+}
+
+.submenu-active {
+    display: block;
+}
+
+#nosotros h4 {
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+#clientes .box {
+    text-align: center;
+    height: 240px;
+}
+
+#clientes .cliente_img {
+    float: left;
+    position: relative;
+    top: -25px;
+    left: 10px;
+}
+
+#clientes .cliente_img1 {
+    text-align: center;
+    width: 100%;
+    min-height: 160px;
+}
+
+#clientes .cliente_text {
+    text-align: left;
+    margin-top: 15px;
+}
+
+#servicios .servicio_img, #servicios .servicio_title {
+    text-align: center;
+}
+
+#servicios .servicio_title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    text-align: center;
+}
+
+h3.is-3, h3.title {
+    color: #e14d81;
+}
+
+.back_button {
+    float: right;
+    color: #e14d81;
+    display: none;
+}
+
+.h3-title{
+    z-index: 1;
+    position: relative;
+    background-color: #fff;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.title-line {
+    z-index: 0;
+    width: 100%;
+    float: left;
+    position: relative;
+    top: 20px;
+    border: 1px solid #dfdfdf;
+}
+
+.section {
+    padding-top: 10px;
+    margin-bottom: 25px;
+}
+
+.button.is-primary {
+    background-color: #e14d81;
+    border-color: transparent;
+    color: #fff;
+}
+
+.slider_producto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.slider_producto .slider_item{
+    margin: 0;
+    float: left;
+    padding: 15px;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+.slider_item .box-image {
+    text-align: center;
+}
+
+.slider_item .desc{
+    line-height: 1 !important;
+    font-size: 0.7em;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.slider_item .empresa{
+    float: left;
+    position: relative;
+    font-weight: bold;
+}
+
+.slider_item .precio{
+    float: right;
+    position: relative;
+}
+
+.slider_item .ver_mas{
+    padding-top: 0.5rem;
+    text-align: right;
+}
+
+#proyectos .galeria a{
+    text-align: center;
+    vertical-align: middle;
+}
+
+#proyectos .galeria a:hover{
+    border: 1px solid #e14d81;
+}
+
+
+#contacto strong {
+    color: #e14d81;
+}
+
+#contacto .columns{
+    color: #fafafa;
+    background-color: #1f191a;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+#contacto input {
+    width: 100%;
+}
+
+#contacto textarea {
+    width: 100%;
+    height: 200px;
+}
+
+#servicios p {
+    text-align: justify;
+    font-size: 0.9rem;
+}
+
+#servicios column {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.back-gray {
+    background-color: #fafafa;
+}
+
+.back-white {
+    background-color: #fff;
+}

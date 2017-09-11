@@ -1,0 +1,42 @@
+{
+  "name": "simple-slider",
+  "version": "0.6.4-rc",
+  "description": "The 1kb JavaScript Carousel",
+  "homepage": "http://ruyadorno.github.io/simple-slider/",
+  "authors": [
+    "Ruy Adorno (http://ruyadorno.com)"
+  ],
+  "main": "dist/simpleslider.js",
+  "keywords": [
+    "simple",
+    "carousel",
+    "slider",
+    "gallery",
+    "slideshow",
+    "lightweight",
+    "minimalistic",
+    "micro",
+    "slick",
+    "lory",
+    "siema",
+    "swipe",
+    "swiper",
+    "flickity",
+    "islider",
+    "owlcarousel",
+    "unslider",
+    "glide",
+    "glidejs",
+    "javascript-carousel",
+    "DOM",
+    "browser"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "test",
+    "scripts"
+  ],
+  "dependencies": {}
+}

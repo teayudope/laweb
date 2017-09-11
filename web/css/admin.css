@@ -1,0 +1,20 @@
+.container.is-fluid {
+    margin: 0;
+}
+
+.section, #top_anchor, #top_menu {
+    max-width: 900px;
+    padding-right: 0;
+    padding-left: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.new-item {
+    float: right;
+    position: relative;
+}
+
+.td-actions a{
+    margin-left: 10px;
+}
