@@ -33,13 +33,17 @@ base_url = '<?=base_url()?>';
 
     $('.id_submenu').click(function(eve){
         href = $(this).attr('href');
-
+        $('.id_submenu').removeClass('is-active');
+        $(this).addClass( "is-active" );
         $.ajax({
           type: "GET",
           url: base_url+"productod/"+href.replace('#',''),
-          success: function(data){
-            $('#load_content').html(data);
-        },
+            beforeSend: function() {
+                $('#load_content').html('<div style="text-align: -webkit-center; padding-top: 20%;"><img src="<?= base_url("web/img/loading.gif"); ?>" height="120" width="120"/></div>');
+            },
+            success: function(data){
+                $('#load_content').html(data);
+            },
         error: function(){alert('error');}
         });
     });
