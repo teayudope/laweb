@@ -69,7 +69,7 @@ class Cart extends CI_Controller
             'id' => $id,
             'qty' => $this->input->post('cantidad'),
             'price' => $producto->precio,
-            'name' => $producto->nombre,
+            'name' => str_replace(',', '', $producto->nombre),
             'options' => array('image' => $producto->imagen_1, 'currency' => 'S/')
         );
         $this->cart->insert($data);
