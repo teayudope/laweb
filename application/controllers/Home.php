@@ -48,7 +48,7 @@ class Home extends CI_Controller
                                             <span class="empresa">'.$producto->marca.'</span>
                                         </div>
                                         <div class="column has-text-right">
-                                            <a href="'.site_url('producto/' . $producto->id . '/' . url_title($producto->nombre)).'
+                                            <a href="'.site_url('producto/' . $producto->id . '/' . url_title($producto->nombre)).'"
                                                class="button is-small is-info">Ver mas</a>
                                         </div>
                                     </div>

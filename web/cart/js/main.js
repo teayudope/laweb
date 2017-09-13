@@ -24,13 +24,13 @@ $(document).ready(function ($) {
         var undoTimeoutId;
 
         //add product to cart
-        addToCartBtn.on('click', function (event) {
+        $('#load_content').on('click', '.cd-add-to-cart',function (event) {
 
             event.preventDefault();
             addToCart($(this));
         });
 
-        cotizarBtn.on('click', function (event) {
+        $(document).on('click', '.checkout', function (event) {
             event.preventDefault();
             toggleCart();
             $('#cliente_nombre').val('');
