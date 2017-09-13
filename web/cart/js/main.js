@@ -170,6 +170,7 @@ $(document).ready(function ($) {
             updateSession(product.id, $('#' + id).val(), 'add');
         }
         else {
+
             var current = Number($('#' + id).val()) + 1;
             var rowid = '#rowid-' + product.id;
 
@@ -288,7 +289,10 @@ $(document).ready(function ($) {
             },
             data: {'id': id, 'cantidad': cantidad},
             success: function (data) {
-
+                $('#rowid-'+data['id']).val(data['rowid']);
+                if (action=='add'){
+                    $("input#cd-product-"+data['id']).attr('data-rowid',data['rowid']);
+                }
             },
             complete: function (data) {
 

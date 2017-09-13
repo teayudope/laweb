@@ -65,16 +65,28 @@ class Cart extends CI_Controller
         $id = $this->input->post('id');
         $producto = $this->producto_model->getProducto($id);
 
+        $data1 = array(
+            'id' => $id,
+            'options' => array('image' => $producto->imagen_1, 'currency' => 'S/')
+        );
+
         $data = array(
             'id' => $id,
             'qty' => $this->input->post('cantidad'),
             'price' => $producto->precio,
-            'name' => str_replace(',', '', $producto->nombre),
+            'rowid' => md5($data1['id'].serialize($data1['options'])),
+            'name' => $producto->nombre,
             'options' => array('image' => $producto->imagen_1, 'currency' => 'S/')
         );
+        $this->cart->product_name_rules = '[:print:]';
         $this->cart->insert($data);
 
-        echo json_encode(array('success' => 'OK'));
+
+        echo json_encode($data);
+
+        //$rowid = md5($data['id'].serialize($data['options']));
+
+        //echo json_encode(array('success' => 'OK'));
     }
 
 
@@ -86,6 +98,7 @@ class Cart extends CI_Controller
             'rowid' => $id,
             'qty' => $this->input->post('cantidad')
         );
+        $this->cart->product_name_rules = '[:print:]';
         $this->cart->update($data);
 
         echo json_encode($data);

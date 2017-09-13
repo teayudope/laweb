@@ -1,8 +1,8 @@
 <footer class="section" style="background-color: #fff;">
     <div class="columns">
         <div class="column is-5">
-            <h2 class="title is-2">INNOVA<span class="has-text-primary">LED</span></h2>
-            <address>Av. Marginal 603 Urb. Javier Prado Oeste</address>
+            <img src="<?= site_url() ?>/web/img/LIP-min.png"  style="width: 80%;">
+            <address style="font-style: normal;">Av. Marginal 603 Urb. Javier Prado Oeste</address>
             <br>
             <br>
             <small>2017 INNOVALED PERU S.A.C. | Todos los derechos reservados</small>
