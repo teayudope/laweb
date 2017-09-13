@@ -57,7 +57,7 @@
 
             <div class="navbar-brand">
                 <a href="<?= site_url() ?>" class="nav-item" style="font-size: 1.8rem;">
-                    INNOVA<span class="has-text-primary">LED</span>
+                    <img src="<?= site_url() ?>/web/img/LIP-min.png">
                 </a>
 
                 <div class="navbar-burger burger" data-target="navMenu" style="float: right;">
