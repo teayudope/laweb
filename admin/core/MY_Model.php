@@ -83,6 +83,11 @@ class MY_Model extends CI_Model
                 $this->db->where($key, $val);
             }
         }
+        if (isset($params['like'])) {
+            foreach ($params['like'] as $key => $val) {
+                $this->db->like($key, $val);
+            }
+        }
 
         return $this->db->get()->result();
     }

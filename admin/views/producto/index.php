@@ -6,6 +6,14 @@
     </span>
 </h4>
 
+<form action="" method="POST" enctype="multipart/form-data" accept-charset="utf-8">
+<h4 class="title is-4" style="margin-top: 5%;">
+    <span class="new-item" style="float: left;">
+        <input id="search" name="search" class="input" type="text" placeholder="Nombre Producto">
+        <button type="submit" class="button is-primary" style="margin-top: 2%; float: left;margin-bottom: 6%;">Buscar</button>
+    </span>
+</h4>
+</form>
 <table class="table is-striped">
     <thead>
     <tr>

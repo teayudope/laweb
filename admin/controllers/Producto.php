@@ -22,6 +22,10 @@ class Producto extends CI_Controller
         $this->load->library('pagination');
         $config['base_url'] = site_url('producto/index');
         $config['uri_segment'] = 3;
+        if ($this->input->post('search')!=""){
+            $this->db->like('nombre',$this->input->post('search'));
+        }
+
         $config['total_rows'] = $this->db->count_all_results('producto');
         $config['per_page'] = 10;
         $config['full_tag_open'] = '<ul class="pagination-list">';
@@ -37,13 +41,20 @@ class Producto extends CI_Controller
         $this->pagination->initialize($config);
         $data['pagination'] = $this->pagination->create_links();
 
-        $data['productos'] = $this->producto_model->find(array(
-            'limit' => $config['per_page'],
-            'offset' => $page
-        ));
+        if ($this->input->post('search')!=""){
+            $data['productos'] = $this->producto_model->find(array(
+                'like' => array('nombre'=>$this->input->post('search')),
+            ));
+        }else{
+            $data['productos'] = $this->producto_model->find(array(
+                'limit' => $config['per_page'],
+                'offset' => $page
+            ));
+        }
         $this->load->setView('view_content', 'producto/index', $data);
         $this->load->renderView('home');
     }
+
 
     public function show($id)
     {
