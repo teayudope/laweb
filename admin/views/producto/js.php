@@ -54,4 +54,8 @@
 
         $('#producto_datos').val(JSON.stringify(data));
     }
+    $('#buscar').click(function(eve){
+        $('#span-search').hide();
+        $('#inputsearch').toggle();
+    });
 </script>

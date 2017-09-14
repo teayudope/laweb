@@ -51,6 +51,7 @@ class Producto extends CI_Controller
                 'offset' => $page
             ));
         }
+        $this->load->setView('view_js', 'producto/js', $data);
         $this->load->setView('view_content', 'producto/index', $data);
         $this->load->renderView('home');
     }
