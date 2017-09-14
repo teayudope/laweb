@@ -1,10 +1,10 @@
-<h4 class="title is-4">
+<h4 class="title is-4" style="margin-bottom: 6%;">
     Listado de Cotizaciones
 </h4>
 
 <table class="table is-striped">
     <thead>
-    <tr>
+    <tr style="border: 1px solid #dbdbdb;">
         <th>ID</th>
         <th>Fecha</th>
         <th>Correo</th>
@@ -16,7 +16,7 @@
     </thead>
     <tbody>
     <?php foreach ($cotizadores as $cotizador): ?>
-        <tr>
+        <tr style="border-left: 1px solid #dbdbdb;border-right: 1px solid #dbdbdb;">
             <td><?= $cotizador->id ?></td>
             <td><?= date('d/m/Y H:i:s', strtotime($cotizador->fecha)) ?></td>
             <td><?= $cotizador->correo ?></td>

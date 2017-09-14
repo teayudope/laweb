@@ -1,4 +1,4 @@
-<h4 class="title is-4">
+<h4 class="title is-4" style="margin-bottom: 6%;">
     Listado de Usuarios
 
     <span class="new-item">
@@ -8,7 +8,7 @@
 
 <table class="table is-striped">
     <thead>
-    <tr>
+    <tr style="border: 1px solid #dbdbdb;">
         <th>ID</th>
         <th>Usuario</th>
         <th>Estado</th>
@@ -17,7 +17,7 @@
     </thead>
     <tbody>
     <?php foreach ($users as $user): ?>
-        <tr>
+        <tr style="border-left: 1px solid #dbdbdb;border-right: 1px solid #dbdbdb;">
             <td><?= $user->id ?></td>
             <td><?= $user->username ?></td>
             <td><?= $user->status == 1 ? 'Activo' : 'Inactivo' ?></td>

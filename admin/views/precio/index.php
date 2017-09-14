@@ -1,14 +1,14 @@
 <h4 class="title is-4">
     Listado de Escalas de Precios
 
-    <span class="new-item">
+    <span class="new-item" style="margin-bottom: 6%;">
         <a href="<?= site_url('precio/form') ?>" class="button is-primary">Nueva Escala de Precio</a>
     </span>
 </h4>
 
 <table class="table is-striped">
     <thead>
-    <tr>
+    <tr style="border: 1px solid #dbdbdb;">
         <th>ID</th>
         <th>Producto</th>
         <th>Precio Base</th>
@@ -21,7 +21,7 @@
     </thead>
     <tbody>
     <?php foreach ($precios as $precio): ?>
-        <tr>
+        <tr style="border-left: 1px solid #dbdbdb;border-right: 1px solid #dbdbdb;">
             <td><?= $precio->id ?></td>
             <td><?= $precio->producto->nombre ?></td>
             <td><?= $precio->producto->moneda == '1' ? 'S/' : '$' ?> <?= $precio->producto->precio ?></td>
