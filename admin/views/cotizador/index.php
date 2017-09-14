@@ -23,10 +23,10 @@
             <td><?= $cotizador->nombre_cliente ?></td>
             <td><?= $cotizador->telefono ?></td>
             <td><?= $cotizador->estado == 1 ? 'Pendiente' : 'Enviado' ?></td>
-            <td class="td-actions has-text-right">
-                <a href="<?= site_url('cotizador/show/' . $cotizador->id) ?>">
+            <td class="td-actions has-text-right" style="padding: 0.5em 0em;">
+                <a href="<?= site_url('cotizador/show/' . $cotizador->id) ?>" style="margin-left: 0px;">
                     <span class="icon">
-                        <i class="fa fa-window-maximize"></i>
+                        <i class="fa fa-window-maximize" style="font-size: 16px;"></i>
                     </span>
                 </a>
             </td>

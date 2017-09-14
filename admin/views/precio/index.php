@@ -29,16 +29,16 @@
             <td><?= $precio->porciento_descuento ?></td>
             <td><?= $precio->producto->moneda == '1' ? 'S/' : '$' ?> <?= $precio->producto->precio * $precio->porciento_descuento / 100 ?></td>
             <td><?= $precio->producto->moneda == '1' ? 'S/' : '$' ?> <?= $precio->producto->precio - ($precio->producto->precio * $precio->porciento_descuento / 100) ?></td>
-            <td class="td-actions has-text-right">
-                <a href="<?= site_url('precio/form/' . $precio->id) ?>">
+            <td class="td-actions has-text-right" style="padding: 0.5em 0em;">
+                <a href="<?= site_url('precio/form/' . $precio->id) ?>" style="margin-left: 0px;">
                 <span class="icon">
-                    <i class="fa fa-pencil"></i>
+                    <i class="fa fa-pencil" style="font-size: 16px;"></i>
                 </span>
                 </a>
 
-                <a href="<?= site_url('precio/delete/' . $precio->id) ?>" class="delete_confirm  has-text-danger">
+                <a href="<?= site_url('precio/delete/' . $precio->id) ?>" style="margin-left: 0px;" class="delete_confirm  has-text-danger">
                 <span class="icon">
-                    <i class="fa fa-trash"></i>
+                    <i class="fa fa-trash" style="font-size: 16px;"></i>
                 </span>
                 </a>
             </td>

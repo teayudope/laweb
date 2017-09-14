@@ -21,17 +21,17 @@
             <td><?= $user->id ?></td>
             <td><?= $user->username ?></td>
             <td><?= $user->status == 1 ? 'Activo' : 'Inactivo' ?></td>
-            <td class="td-actions has-text-right">
-                <a href="<?= site_url('user/form/' . $user->id) ?>">
+            <td class="td-actions has-text-right" style="padding: 0.5em 0em;">
+                <a href="<?= site_url('user/form/' . $user->id) ?>" style="margin-left: 0px;">
                 <span class="icon">
-                    <i class="fa fa-pencil"></i>
+                    <i class="fa fa-pencil" style="font-size: 16px;"></i>
                 </span>
                 </a>
 
                 <?php if ($user->is_super != 1): ?>
-                    <a href="<?= site_url('user/delete/' . $user->id) ?>" class="delete_confirm  has-text-danger">
+                    <a href="<?= site_url('user/delete/' . $user->id) ?>" style="margin-left: 0px;" class="delete_confirm  has-text-danger">
                 <span class="icon">
-                    <i class="fa fa-trash"></i>
+                    <i class="fa fa-trash" style="font-size: 16px;"></i>
                 </span>
                     </a>
                 <?php endif; ?>

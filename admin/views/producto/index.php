@@ -44,22 +44,22 @@
             <td><?= $producto->sublinea_nombre ?></td>
             <td><?= $producto->estado == 1 ? 'SI' : 'NO' ?></td>
             <td><?= $producto->orden ?></td>
-            <td class="td-actions has-text-right">
-                <a href="<?= site_url('producto/show/' . $producto->id) ?>">
+            <td class="td-actions has-text-right" style="padding: 0.5em 0em;">
+                <a href="<?= site_url('producto/show/' . $producto->id) ?>" style="margin-left: 0px;">
                 <span class="icon">
-                    <i class="fa fa-window-maximize"></i>
+                    <i class="fa fa-window-maximize" style="font-size: 16px;"></i>
                 </span>
                 </a>
 
-                <a href="<?= site_url('producto/form/' . $producto->id) ?>">
+                <a href="<?= site_url('producto/form/' . $producto->id) ?>" style="margin-left: 0px;">
                 <span class="icon">
-                    <i class="fa fa-pencil"></i>
+                    <i class="fa fa-pencil" style="font-size: 16px;"></i>
                 </span>
                 </a>
 
-                <a href="<?= site_url('producto/delete/' . $producto->id) ?>" class="delete_confirm  has-text-danger">
+                <a href="<?= site_url('producto/delete/' . $producto->id) ?>" style="margin-left: 0px;" class="delete_confirm  has-text-danger">
                 <span class="icon">
-                    <i class="fa fa-trash"></i>
+                    <i class="fa fa-trash" style="font-size: 16px;"></i>
                 </span>
                 </a>
             </td>
