@@ -15,7 +15,11 @@ class Cotizador extends CI_Controller
 
     public function index($page = 0)
     {
-
+        $fecha =  date('Y-m-d');
+        if ($this->input->post('datedepart')!=""){
+            $fecha = $this->input->post('datedepart');
+            $this->db->where('DATE(fecha)',$fecha);
+        }
         $this->load->library('pagination');
         $config['base_url'] = site_url('cotizador/index');
         $config['uri_segment'] = 3;
@@ -35,6 +39,7 @@ class Cotizador extends CI_Controller
         $data['pagination'] = $this->pagination->create_links();
 
         $data['cotizadores'] = $this->cotizador_model->find(array(
+            'where' => array('DATE(fecha)'=> $fecha),
             'order' => 'id',
             'order_type' => 'DESC',
             'limit' => $config['per_page'],

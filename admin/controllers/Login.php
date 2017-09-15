@@ -1,4 +1,4 @@
-<?php
+  <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller
@@ -44,6 +44,6 @@ class Login extends CI_Controller
     public function out()
     {
         $this->session->unset_userdata('user_id');
-        header('Location: http://localhost/innovaled');
+        header('Location: '.base_url());
     }
 }

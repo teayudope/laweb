@@ -1,7 +1,16 @@
 <h4 class="title is-4" style="margin-bottom: 6%;">
     Listado de Cotizaciones
 </h4>
-
+<form action="" method="POST" enctype="multipart/form-data" accept-charset="utf-8">
+<h4 class="title is-4" style="margin-top: 5%;">
+    <span id="inputsearch" class="new-item" style="float: right; margin-bottom: 1%;">
+        <input id="datedepart" name="datedepart" type="date" class="input" style="width: 83%; float: left;" value="<?php echo date('Y-m-d') ?>"/>
+        <button type="submit" class="button is-primary" style="margin-top: 0%;float: left;margin-bottom: 6%;border-radius: 0px;">            <span class="icon is-small">
+                <i class="fa fa-search"></i>
+            </span></button>
+    </span>
+</h4>
+</form>
 <table class="table is-striped">
     <thead>
     <tr style="border: 1px solid #dbdbdb;">

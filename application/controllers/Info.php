@@ -11,6 +11,7 @@ class info extends CI_Controller
         $this->load->setView('view_content', 'info/index');
         $this->load->setView('view_menu', 'info/menu');
         $this->load->setView('view_js', 'info/js');
+		$this->load->setView('view_footer', 'sections/footer');
         $this->load->renderView('home');
     }
 }

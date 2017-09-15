@@ -61,27 +61,80 @@
     <div class="slider_producto_cliente">
         <div class="column">
             <div class="box">
-                <div class="cliente_img">
-                    <img src="img/cliente2.png" height="80" width="80"/>
+                <div class="cliente_img1"><br>
+                    <img src="<?= base_url('web/img/clientes/150.png') ?>" height="160" width="160" />
                 </div>
                 <br>
-
+<!-- 
                 <div class="cliente_text" style="font-size: 0.7em;">
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
                     the industry's standard dummy text ever since the 1500s.
                 </div>
-
-                <strong>Nombre del representante - Cargo</strong>
-                <div class="has-text-right">
+-->
+                <strong></strong>
+                <!-- <div class="has-text-right">
                     <strong>Ripley</strong></div>
+                -->
             </div>
         </div>
         <div class="column">
             <div class="box">
                 <div class="cliente_img1">
-                    <img src="img/cliente1.jpg" height="160" width="160"/>
+                    <img src="<?= base_url('web/img/clientes/alac_outdoor.png') ?>"  height="160" width="160"/>
                 </div>
-                <strong>Plaza Vea</strong>
+                <strong></strong>
+            </div>
+        </div>
+        <div class="column">
+            <div class="box">
+                <div class="cliente_img1">
+                    <img src="<?= base_url('web/img/clientes/cidelsa.png') ?>"  height="160" width="160"/>
+                </div>
+                <strong></strong>
+            </div>
+        </div>
+        <div class="column">
+            <div class="box">
+                <div class="cliente_img1">
+                    <img src="<?= base_url('web/img/clientes/clear.png') ?>"  height="160" width="160"/>
+                </div>
+                <strong></strong>
+            </div>
+        </div>
+        <div class="column">
+            <div class="box">
+                <div class="cliente_img1">
+                    <img src="<?= base_url('web/img/clientes/crearea.png') ?>"  height="160" width="160"/>
+                </div>
+                <strong></strong>
+            </div>
+        </div><div class="column">
+            <div class="box">
+                <div class="cliente_img1">
+                    <img src="<?= base_url('web/img/clientes/inventa_ks.png') ?>"  height="160" width="160"/>
+                </div>
+                <strong></strong>
+            </div>
+        </div><div class="column">
+            <div class="box">
+                <div class="cliente_img1">
+                    <img src="<?= base_url('web/img/clientes/rtc.png') ?>"  height="160" width="160"/>
+                </div>
+                <strong></strong>
+            </div>
+        </div><div class="column">
+            <div class="box">
+                <div class="cliente_img1">
+                    <img src="<?= base_url('web/img/clientes/sie.png') ?>"  height="160" width="160"/>
+                </div>
+                <strong></strong>
+            </div>
+        </div><div class="column">
+            <div class="box">
+                <div class="cliente_img1">
+                    <img src="<?= base_url('web/img/clientes/spazi-disegno.png') ?>"  height="160" width="160"/>
+                </div>
+                <strong></strong>
             </div>
         </div>
     </div>

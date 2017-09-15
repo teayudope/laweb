@@ -25,7 +25,8 @@
 
         var slider = tns({
             container: document.querySelector('.slider_producto_cliente'),
-            items: 2,
+            items: 3,
+            controls: false,
             slideBy: 'page',
             autoplay: true
         });

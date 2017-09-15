@@ -1124,9 +1124,10 @@ var tns = function(options) {
           append(wrapper, '<div data-tns-role="nav" aria-label="Carousel Pagination"></div>');
           navContainer = wrapper.querySelector('[data-tns-role="nav"]');
         }
-
+/*
         append(navContainer, '<button data-action="stop" type="button">' + autoplayHtmlString + autoplayText[0] + '</button>');
         autoplayButton = navContainer.querySelector('[data-action]');
+        */
       }
 
       // start autoplay
