@@ -80,6 +80,25 @@ class Home extends CI_Controller
                         echo $conten;exit;
     }
 
+    public function contacto(){
+        $this->load->library('email');
+
+        $content = "Cliente: ".$this->input->post('contacto_nombre')."<br>Telefono: ".$this->input->post('contacto_telefono')."<br>Mensaje:".$this->input->post('contacto_mensaje');
+
+        $this->config->load('email', TRUE);
+        $email_config = $this->config->item('email');
+
+        $this->email->initialize($email_config);
+        $this->email->from($email_config['from']);
+        $this->email->to($this->input->post('contacto_correo'));
+        $this->email->reply_to($email_config['reply_to']);
+        $this->email->subject('Mensaje de Contacto');
+        $this->email->message($content);
+        $this->email->send();
+
+        echo "Mensaje enviado con exito";exit;
+    }
+
     public function index($id = FALSE)
     {
         if ($id == FALSE)

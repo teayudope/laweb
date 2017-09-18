@@ -787,6 +787,11 @@ function getMes($num)
                                                 <tr>
                                                     <td align="center" valign="top" style="
                                                         ">
+                                                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td align="left"><img height="32" src="<?= site_url() ?>/web/img/LIP-min.png" style="display:block;height:32px" class="CToWUd"></td><td align="right">
+                                                        <!--
+                                                        <img width="32" height="32" style="display:block;width:32px;height:32px" src="https://ci3.googleusercontent.com/proxy/M66ZNacPlHAzr1syxHojC07BuO63gs0WeUx82IAyCm74zrziOOWb2InfAWL4PI5pkUNG4LG2jaZGZZ-l8d1ogxMxKRf7zQXAhtGygw=s0-d-e1-ft#https://www.gstatic.com/accountalerts/email/shield.png" class="CToWUd">
+                                                        -->
+                                                        </td></tr></tbody></table>
                                                         <table bgcolor="#b7457c" width="100%" border="0" cellspacing="0" cellpadding="0" style="min-width:332px;max-width:800px;"><tbody><tr><td height="42px" colspan="3"></td></tr><tr><td width="32px"></td><td style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;font-size:24px;color:#ffffff;line-height:1.25;min-width:300px">PRECOTIZACION</td><td width="32px"></td></tr><tr><td height="18px" colspan="3"></td></tr></tbody></table>
                                                         <!-- // Begin Template Footer \\ -->
                                                         <table border="0" cellpadding="10" cellspacing="0" width="800" id="templateFooter">

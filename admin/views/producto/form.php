@@ -58,6 +58,55 @@
     <div class="field">
         <div class="columns">
             <div class="column is-4">
+                <label class="label">Galería</label>
+                <input type="hidden" id="producto_datos" name="producto_datos" value="[]">
+            </div>
+            <div class="column is-8">
+                <div class="columns">
+                    <div class="column is-3">
+                        <label class="label">Imagen</label>
+                    </div>
+                    <div class="column is-7">
+                        <input class="input" type="file" name="imagen_n" id="add_titulo_i">
+                    </div>
+                    <div class="column is-2">
+                        <button type="button" id="add_body_i"
+                                class="button is-success">
+                            <span><i class="fa fa-plus"></i></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="column">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Imagen</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody id="table_body_i">
+                            <?php if (isset($producto_datos)): ?>
+                                <?php foreach ($producto_datos as $dato): ?>
+                                    <tr>
+                                        <td><img src="<?= $dato->dato;?>"></td>
+                                        <td>
+                                            <button type="button" class="del_body_i button is-danger is-small"><span><i
+                                                            class="fa fa-remove is-small"></i></span></button>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="field">
+        <div class="columns">
+            <div class="column is-4">
                 <label class="label">Linea</label>
             </div>
             <div class="column is-8">

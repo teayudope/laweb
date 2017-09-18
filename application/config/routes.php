@@ -55,3 +55,4 @@ $route['translate_uri_dashes'] = FALSE;
 $route['productos/(:num)/(:any)'] = 'home/index/$1';
 $route['producto/(:num)/(:any)'] = 'home/detail/$1';
 $route['productod/(:num)'] = 'home/hello/$1';
+$route['contactod/(:num)'] = 'home/contacto/$1';

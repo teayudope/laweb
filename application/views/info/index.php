@@ -310,24 +310,44 @@
                 <strong>CONTACTANOS:</strong>
 
                 <div class="field">
-                    <input type="text" class="input" placeholder="Nombre y Apellidos">
+                    <input id="contacto_nombre" type="text" class="input" placeholder="Nombre y Apellidos">
+                    <p id="nombre_error_contact" class="errors help is-danger"></p>
                 </div>
                 <div class="field">
-                    <input type="text" class="input" placeholder="Correo">
+                    <input id="contacto_correo" type="text" class="input" placeholder="Correo">
+                    <p id="correo_error_contact" class="errors help is-danger"></p>
                 </div>
                 <div class="field">
-                    <input type="text" class="input" placeholder="Telefono">
+                    <input id="contacto_telefono" type="text" class="input" placeholder="Telefono">
+                    <p id="telefono_error_contact" class="errors help is-danger"></p>
                 </div>
                 <div class="field">
-                    <textarea class="input" placeholder="Mensaje"></textarea>
+                    <textarea id="contacto_mensaje" class="input" placeholder="Mensaje"></textarea>
+                    <p id="mensaje_error_contact" class="errors help is-danger"></p>
                 </div>
                 <div class="field">
-                    <input type="button" class="button is-info" value="Enviar">
+                    <input id="enviar_contacto" type="button" class="button is-info" value="Enviar">
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<div id="contacto_send_modal" class="modal">
+    <div class="content notification is-success" style="width: 45%;">
+        <button class="delete enviado_close"></button>
+        <h5 class="title is-5"> Su mensaje ha sido enviado exitosamente.
+            Si tiene alguna duda puede contactarnos a traves de nuestro numero de tel&eacute;fono 01 393 4964 o
+            escribiendonos al correo <a href="mailto:ventas@innovaled.pe">ventas@innovaled.pe</a>.
+            Muchas gracias</h5>
+        <br>
+        <div class="has-text-centered">
+            <button class="button enviado_close is-info">Seguir en el Sitio</button>
+        </div>
+
+    </div>
+</div>
+
 
 <div id="imagen_modal" class="modal">
     <div class="modal-content">
@@ -335,3 +355,91 @@
     </div>
     <button class="modal-close close-bmodal"></button>
 </div>
+<script src="<?= base_url('web') ?>/js/vendor/modernizr-2.8.3.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script>window.jQuery || document.write('<script src="<?= base_url('web') ?>/js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+<script src="<?= base_url('web') ?>/js/plugins.js"></script>
+<script src="<?= base_url('web') ?>/js/bmodal.js"></script>
+
+<script>
+    $(function () {
+        $('#enviar_contacto').on('click', function () {
+            var contacto_nombre = $('#contacto_nombre').val();
+            var contacto_correo = $('#contacto_correo').val();
+            var contacto_telefono = $('#contacto_telefono').val();
+            var contacto_mensaje = $('#contacto_mensaje').val();
+
+            $('.errors').hide();
+            var has_error = false;
+            var regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+            if (contacto_nombre == "") {
+                $('#nombre_error_contact').html('El campo Nombre y Apelidos es requerido');
+                $('#nombre_error_contact').show();
+                has_error = true;
+            }
+
+            if (contacto_correo == "") {
+                $('#correo_error_contact').html('El campo Correo es requerido');
+                $('#correo_error_contact').show();
+                has_error = true;
+            }
+            else if (!regex.test(contacto_correo)) {
+                $('#correo_error_contact').html('El campo Correo no es valido');
+                $('#correo_error_contact').show();
+                has_error = true;
+            }
+
+            if (contacto_telefono == "") {
+                $('#telefono_error_contact').html('El campo Tel&eacute;fono es requerido');
+                $('#telefono_error_contact').show();
+                has_error = true;
+            }
+            else if (isNaN(contacto_telefono)) {
+                $('#telefono_error_contact').html('El campo Tel&eacute;fono no es valido');
+                $('#telefono_error_contact').show();
+                has_error = true;
+            }
+
+
+            if (has_error)
+                return false;
+
+            $('#send_cotizacion_btn').addClass('is-loading');
+            var parames = {
+                'contacto_nombre': contacto_nombre,
+                'contacto_correo': contacto_correo,
+                'contacto_telefono': contacto_telefono,
+                'contacto_mensaje': contacto_mensaje
+            };
+
+            var url = $('#site_url').val() + 'contactod/1';
+
+            alert($('#contacto_nombre').val());
+
+            $('#loading_modal').bmodal('show');
+
+            $.ajax({
+                url: url,
+                type: 'POST',
+                headers: {
+                    Accept: 'application/json'
+                },
+                data: parames,
+                success: function (data) {
+                    $('#nombre_enviado').html(cliente_nombre);
+                    $('#contacto_send_modal').bmodal('show');
+
+                },
+                complete: function (data) {
+                    $('#loading_modal').bmodal('hide');
+                    $('#enviar_contacto').removeClass('is-loading');
+                },
+                error: function (data) {
+                    alert('Ha ocurrido un error 1.');
+                }
+            });
+        });
+
+    });
+</script>
