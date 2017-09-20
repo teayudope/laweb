@@ -149,6 +149,69 @@ class Home extends CI_Controller
         $this->email->message($content);
         $this->email->send();
 
+
+        /** Mensaje para el administrador**/
+
+
+        $content = "Cliente: ".$this->input->post('contacto_nombre')."<br>Telefono: ".$this->input->post('contacto_telefono')."<br>Mensaje:".$this->input->post('contacto_mensaje');
+        $content = '<html><head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <style type="text/css">
+                h3,.h3{
+                /*@editable*/color:#202020;
+                display:block;
+                /*@editable*/font-family:Arial;
+                /*@editable*/font-size:26px;
+                /*@editable*/font-weight:bold;
+                /*@editable*/line-height:100%;
+                margin-bottom:10px;
+                /*@editable*/text-align:left;
+                }
+            </style></head>
+        <body style="font-family: \'Open Sans\';color: #4d4d4d;" offset="0" topmargin="0" marginwidth="0" marginheight="0" leftmargin="0">
+            <center>
+                <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="backgroundTable">
+                    <tbody><tr>
+                            <td align="center" valign="top">
+                                <br>
+                                    <table border="0" cellpadding="0" cellspacing="0" width="800" id="templateContainer" style="    -webkit-box-shadow: 0px 9px 53px -7px rgba(0,0,0,0.83);
+                                                                            -moz-box-shadow: 0px 9px 53px -7px rgba(0,0,0,0.83);
+                                                                            box-shadow: 0px 19px 55px -11px rgba(0,0,0,0.73);">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td align="left" valign="top" style="
+                                                                                        ">
+                                                                                        <table style="color: gray;font-family: &quot;Open sans&quot;;padding: 3% 5% 0% 10%;">
+                                                                                            <tbody>
+
+                                                                                                <tr>
+                                                                                                    <td style="text-align: left;padding: 2% 0% 10% 0%;">
+                                                                                                        
+                                                                                                        <h6 style="padding-top: 2%;line-height: 1.8em;font-weight: 400;font-family: &quot;Open sans&quot;;font-size: 1.3em;">De: '.$this->input->post('contacto_nombre').'<br>Telefono: '.$this->input->post('contacto_telefono').'<br>Email: '.$this->input->post('contacto_correo').'<br><br>Mensaje: '.$this->input->post('contacto_mensaje').'</h6>
+                                    <h6 style="padding-top: 2%;line-height: 1.8em;font-weight: 400;font-family: &quot;Open sans&quot;;font-size: 1.3em;">Mensaje Recibido: '.date('d-m-Y h:i:s').'</h6>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            </tbody></table>
+                                                                                    </td></tr>
+                                                                            </tbody></table>
+                                    <br>
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                    </center>
+                </body>
+            </html>';
+        $this->config->load('email', TRUE);
+        $email_config = $this->config->item('email');
+
+        $this->email->initialize($email_config);
+        $this->email->from($email_config['from']);
+        $this->email->to($email_config['from']);
+        $this->email->reply_to($email_config['reply_to']);
+        $this->email->subject('Mensaje de Contacto');
+        $this->email->message($content);
+        $this->email->send();
+
         echo "Mensaje enviado con exito";exit;
     }
 
