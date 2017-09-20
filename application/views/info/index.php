@@ -415,8 +415,7 @@
 
             var url = $('#site_url').val() + 'contactod/1';
 
-            alert($('#contacto_nombre').val());
-
+            
             $('#loading_modal').bmodal('show');
 
             $.ajax({

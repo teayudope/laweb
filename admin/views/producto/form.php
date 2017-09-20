@@ -18,7 +18,7 @@
             </div>
         </div>
     </div>
-
+<?php /* ?>
     <div class="field">
         <div class="columns">
             <div class="column is-4">
@@ -36,25 +36,100 @@
             </div>
         </div>
     </div>
-
+<?php */ ?>
     <div class="field">
         <div class="columns">
             <div class="column is-4">
-                <label class="label">Imagen Grande</label>
+                <label class="label">Imagen de Portada</label>
             </div>
             <div class="column is-8">
                 <div class="control">
-                    <input class="input" type="file" name="imagen_2">
+                    <input class="input" type="file" name="producto[imagen_1]">
                     <?php if (isset($producto)): ?>
-                        <img src="<?= base_url('web/uploads/productos/' . $producto->imagen_2) ?>" width="128"
+                        <img src="<?= base_url('web/uploads/productos/' . $producto->imagen_1) ?>" width="128"
                              height="128">
                     <?php endif; ?>
                 </div>
-                <?= isset($imagen_2_error) ? $imagen_2_error : '' ?>
+                <?= isset($imagen_1_error) ? $imagen_1_error : '' ?>
             </div>
         </div>
     </div>
 
+    <div class="field">
+        <div class="columns">
+            <div class="column is-4">
+                <label class="label">Imagen 2</label>
+            </div>
+            <div class="column is-8">
+                <div class="control">
+                    <input class="input" type="file" name="producto[imagen_3]">
+                    <?php if (isset($producto)): ?>
+                        <img src="<?= base_url('web/uploads/productos/' . $producto->imagen_3) ?>" width="128"
+                             height="128">
+                    <?php endif; ?>
+                </div>
+                <?= isset($imagen_3_error) ? $imagen_3_error : '' ?>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="field">
+        <div class="columns">
+            <div class="column is-4">
+                <label class="label">Imagen 3</label>
+            </div>
+            <div class="column is-8">
+                <div class="control">
+                    <input class="input" type="file" name="producto[imagen_4]">
+                    <?php if (isset($producto)): ?>
+                        <img src="<?= base_url('web/uploads/productos/' . $producto->imagen_4) ?>" width="128"
+                             height="128">
+                    <?php endif; ?>
+                </div>
+                <?= isset($imagen_4_error) ? $imagen_4_error : '' ?>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="field">
+        <div class="columns">
+            <div class="column is-4">
+                <label class="label">Imagen 4</label>
+            </div>
+            <div class="column is-8">
+                <div class="control">
+                    <input class="input" type="file" name="producto[imagen_5]">
+                    <?php if (isset($producto)): ?>
+                        <img src="<?= base_url('web/uploads/productos/' . $producto->imagen_5) ?>" width="128"
+                             height="128">
+                    <?php endif; ?>
+                </div>
+                <?= isset($imagen_5_error) ? $imagen_5_error : '' ?>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="field">
+        <div class="columns">
+            <div class="column is-4">
+                <label class="label">Imagen 5</label>
+            </div>
+            <div class="column is-8">
+                <div class="control">
+                    <input class="input" type="file" name="producto[imagen_6]">
+                    <?php if (isset($producto)): ?>
+                        <img src="<?= base_url('web/uploads/productos/' . $producto->imagen_6) ?>" width="128"
+                             height="128">
+                    <?php endif; ?>
+                </div>
+                <?= isset($imagen_6_error) ? $imagen_6_error : '' ?>
+            </div>
+        </div>
+    </div>
+<?php /*
     <div class="field">
         <div class="columns">
             <div class="column is-4">
@@ -104,6 +179,8 @@
             </div>
         </div>
     </div>
+
+    */ ?>
     <div class="field">
         <div class="columns">
             <div class="column is-4">

@@ -54,7 +54,7 @@
             var titulo = $('#add_titulo_i').val();
             var table = $('#table_body_i');
             if (titulo == '') {
-                alert('El titulo no puede estar vacio');
+                alert('El campo no puede estar vacio');
                 return;
             }
 

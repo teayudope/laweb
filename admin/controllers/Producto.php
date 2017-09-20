@@ -96,8 +96,11 @@ class Producto extends CI_Controller
     {
 
         $producto = NULL;
-        if ($id != FALSE)
+        $portada = FALSE;
+        if ($id != FALSE){
             $producto = $this->producto_model->findByPk($id);
+            $portada = TRUE;
+        }
 
         $this->load->library('form_validation');
 
@@ -123,50 +126,61 @@ class Producto extends CI_Controller
             $config['max_size'] = 2044;
             $this->load->library('upload');
 
-            $img_name = $id != FALSE ? $id . '-imagen_1' : 'id-imagen_1';
-            $config['file_name'] = $img_name;
-            $this->upload->initialize($config);
             $upload_count = 0;
-            $image_1_ext = '';
-            $image_2_ext = '';
-            if (!$this->upload->do_upload('imagen_1')) {
-                if ($id == FALSE) {
-                    $this->form($id, array(
-                        'error_name' => 'imagen_1_error',
-                        'msg' => $this->upload->display_errors('<p class="help is-danger">', '</p>')
-                    ));
-                } else {
-                    $this->producto_model->set('imagen_1', $producto->imagen_1);
-                    $upload_count++;
-                }
 
-            } else {
-                $upload_count++;
-                $image_1_ext = $this->upload->data('file_ext');
-                $this->producto_model->set('imagen_1', $this->upload->data('file_name'));
-            }
+            /* IMAGEN 1 */
 
-            $img_name = $id != FALSE ? $id . '-imagen_2' : 'id-imagen_2';
-            $config['file_name'] = $img_name;
-            $this->upload->initialize($config);
-            if ($upload_count == 1)
-                if (!$this->upload->do_upload('imagen_2')) {
-                    if ($id == FALSE) {
-                        $this->form($id, array(
-                            'error_name' => 'imagen_2_error',
-                            'msg' => $this->upload->display_errors('<p class="help is-danger">', '</p>')
-                        ));
+            $files = $_FILES;
+            $cpt = count($_FILES['producto']['name']);
+
+            for($i=1; $i<$cpt; $i++){
+
+                $_FILES['producto']['name']= $files['producto']['name']['imagen_'.$i];
+                $_FILES['producto']['type']= $files['producto']['type']['imagen_'.$i];
+                $_FILES['producto']['tmp_name']= $files['producto']['tmp_name']['imagen_'.$i];
+                $_FILES['producto']['error']= $files['producto']['error']['imagen_'.$i];
+                $_FILES['producto']['size']= $files['producto']['size']['imagen_'.$i];  
+                $img_name = $id != FALSE ? $id . '-imagen_'.$i : 'id-imagen_'.$i;
+                $config['file_name'] = $img_name;
+                $this->upload->initialize($config);
+                    if (!$this->upload->do_upload('producto')) {
+                        
+                        if ($id == FALSE) {
+                            $this->form($id, array(
+                                'error_name' => 'imagen_'.($i).'_error',
+                                'msg' => $this->upload->display_errors('<p class="help is-danger">', '</p>')
+                            ));
+                        } else {
+                            if (trim($_FILES['producto']['name']) or $producto->imagen_1 or $producto->imagen_2 or $producto->imagen_3 or $producto->imagen_4 or $producto->imagen_5  or $producto->imagen_6) {
+                                if ( $i == 1 ){
+                                    $this->producto_model->set('imagen_1', $producto->imagen_1);
+                                }
+                                if ( $i == 3 ){
+                                    $this->producto_model->set('imagen_3', $producto->imagen_3);
+                                }
+                                if ( $i == 4 ){
+                                    $this->producto_model->set('imagen_4', $producto->imagen_4);
+                                }
+                                if ( $i == 5 ){
+                                    $this->producto_model->set('imagen_5', $producto->imagen_5);
+                                }
+                                if ( $i == 6 ){
+                                    $this->producto_model->set('imagen_6', $producto->imagen_6);
+                                }
+
+                                $upload_count++;
+                            }
+                        }
                     } else {
-                        $this->producto_model->set('imagen_2', $producto->imagen_2);
+
                         $upload_count++;
+                        ${'$image_'.($i).'_ext'} = $this->upload->data('file_ext');
+                        $this->producto_model->set('imagen_'.$i, $this->upload->data('file_name'));
                     }
-                } else {
-                    $upload_count++;
-                    $image_2_ext = $this->upload->data('file_ext');
-                    $this->producto_model->set('imagen_2', $this->upload->data('file_name'));
-                }
-
-
+                    if($i==1){
+                        $i++;
+                    }
+            }
             $img_name = $id != FALSE ? $id . '-ficha' : 'id-ficha';
             $config['file_name'] = $img_name;
             $config['allowed_types'] = 'pdf';
@@ -183,15 +197,15 @@ class Producto extends CI_Controller
                             $this->producto_model->set('ficha', '');
                         else
                             $this->producto_model->set('ficha', $producto->ficha);
-                        $upload_count++;
                     }
                 } else {
                     $upload_count++;
                     $this->producto_model->set('ficha', $this->upload->data('file_name'));
+                    $data=$this->upload->data();
                 }
 
+            if (${'$image_1_ext'} or $portada) {
 
-            if ($upload_count == 3) {
                 $this->producto_model->setByArray($this->input->post('producto'));
                 $this->producto_model->set('slug', url_title($this->producto_model->get('nombre')));
                 if ($id == FALSE) {
@@ -205,18 +219,31 @@ class Producto extends CI_Controller
                         $this->producto_dato_model->set('orden', 0);
                         $this->producto_dato_model->insert();
                     }
-
-                    rename($path . 'id-imagen_1' . $image_1_ext, $path . $id . '-imagen_1' . $image_1_ext);
-                    rename($path . 'id-imagen_2' . $image_2_ext, $path . $id . '-imagen_2' . $image_2_ext);
+                    $update = array('imagen_1' => $id . '-imagen_1' . ${'$image_1_ext'}, 'imagen_2' => $id . '-imagen_2' . ${'$image_1_ext'}, 'ficha' => $id . '-ficha.pdf');
+                    rename($path . 'id-imagen_1' . ${'$image_1_ext'}, $path . $id . '-imagen_1' . ${'$image_1_ext'});
+                    //rename($path . 'id-imagen_2' . ${'$image_1_ext'}, $path . $id . '-imagen_2' . ${'$image_1_ext'});
+                    if ($producto->imagen_3){
+                        rename($path . 'id-imagen_3' . ${'$image_3_ext'}, $path . $id . '-imagen_3' . ${'$image_3_ext'});
+                        $update[]=array('imagen_3' => $id . '-imagen_3' . ${'$image_3_ext'});
+                    }
+                    if ($producto->imagen_4){
+                        rename($path . 'id-imagen_4' . ${'$image_4_ext'}, $path . $id . '-imagen_4' . ${'$image_4_ext'});
+                        $update[]=array('imagen_4' => $id . '-imagen_4' . ${'$image_4_ext'});
+                    }
+                    if ($producto->imagen_5){
+                        rename($path . 'id-imagen_5' . ${'$image_5_ext'}, $path . $id . '-imagen_5' . ${'$image_5_ext'});
+                        $update[]=array('imagen_5' => $id . '-imagen_5' . ${'$image_5_ext'});
+                    }
+                    if ($producto->imagen_6){
+                        rename($path . 'id-imagen_6' . ${'$image_6_ext'}, $path . $id . '-imagen_6' . ${'$image_6_ext'});
+                        $update[]=array('imagen_6' => $id . '-imagen_6' . ${'$image_6_ext'});
+                    }
                     rename($path . 'id-ficha.pdf', $path . $id . '-ficha.pdf');
 
                     $this->db->where('id', $id);
-                    $this->db->update('producto', array(
-                        'imagen_1' => $id . '-imagen_1' . $image_1_ext,
-                        'imagen_2' => $id . '-imagen_2' . $image_2_ext,
-                        'ficha' => $id . '-ficha.pdf',
-                    ));
+                    $this->db->update('producto', $update);
                 } else {
+
                     $this->producto_model->update();
 
                     $this->db->where('producto_id', $id);
@@ -233,6 +260,7 @@ class Producto extends CI_Controller
 
                 redirect('producto');
             }
+
         }
     }
 

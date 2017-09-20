@@ -7,7 +7,7 @@ class Producto_model extends MY_Model
     public function __construct()
     {
         parent::__construct();
-        $this->setup('producto', array('id', 'nombre', 'slug', 'imagen_1', 'imagen_2', 'linea', 'sublinea',
+        $this->setup('producto', array('id', 'nombre', 'slug', 'imagen_1', 'imagen_2', 'imagen_3', 'imagen_4', 'imagen_5', 'imagen_6', 'linea', 'sublinea',
             'marca', 'precio', 'mostrar_precio', 'moneda', 'ficha', 'descripcion_corta', 'descripcion_larga',
             'estado', 'orden'));
     }
