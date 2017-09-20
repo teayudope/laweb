@@ -144,7 +144,7 @@ class Producto extends CI_Controller
                 $config['file_name'] = $img_name;
                 $this->upload->initialize($config);
                     if (!$this->upload->do_upload('producto')) {
-                        
+
                         if ($id == FALSE) {
                             $this->form($id, array(
                                 'error_name' => 'imagen_'.($i).'_error',
@@ -219,26 +219,29 @@ class Producto extends CI_Controller
                         $this->producto_dato_model->set('orden', 0);
                         $this->producto_dato_model->insert();
                     }
+
                     $update = array('imagen_1' => $id . '-imagen_1' . ${'$image_1_ext'}, 'imagen_2' => $id . '-imagen_2' . ${'$image_1_ext'}, 'ficha' => $id . '-ficha.pdf');
                     rename($path . 'id-imagen_1' . ${'$image_1_ext'}, $path . $id . '-imagen_1' . ${'$image_1_ext'});
                     //rename($path . 'id-imagen_2' . ${'$image_1_ext'}, $path . $id . '-imagen_2' . ${'$image_1_ext'});
-                    if ($producto->imagen_3){
+                    if ($files['producto']['name']['imagen_3']){
                         rename($path . 'id-imagen_3' . ${'$image_3_ext'}, $path . $id . '-imagen_3' . ${'$image_3_ext'});
-                        $update[]=array('imagen_3' => $id . '-imagen_3' . ${'$image_3_ext'});
+                        $update['imagen_3']=$id . '-imagen_3' . ${'$image_3_ext'};
                     }
-                    if ($producto->imagen_4){
+                    if ($files['producto']['name']['imagen_4']){
                         rename($path . 'id-imagen_4' . ${'$image_4_ext'}, $path . $id . '-imagen_4' . ${'$image_4_ext'});
                         $update[]=array('imagen_4' => $id . '-imagen_4' . ${'$image_4_ext'});
                     }
-                    if ($producto->imagen_5){
+                    if ($files['producto']['name']['imagen_5']){
                         rename($path . 'id-imagen_5' . ${'$image_5_ext'}, $path . $id . '-imagen_5' . ${'$image_5_ext'});
                         $update[]=array('imagen_5' => $id . '-imagen_5' . ${'$image_5_ext'});
                     }
-                    if ($producto->imagen_6){
+                    if ($files['producto']['name']['imagen_6']){
                         rename($path . 'id-imagen_6' . ${'$image_6_ext'}, $path . $id . '-imagen_6' . ${'$image_6_ext'});
                         $update[]=array('imagen_6' => $id . '-imagen_6' . ${'$image_6_ext'});
                     }
-                    rename($path . 'id-ficha.pdf', $path . $id . '-ficha.pdf');
+                    if ($_FILES['ficha']['name']){
+                        rename($path . 'id-ficha.pdf', $path . $id . '-ficha.pdf');
+                    }
 
                     $this->db->where('id', $id);
                     $this->db->update('producto', $update);
