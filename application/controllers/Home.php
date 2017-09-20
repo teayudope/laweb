@@ -124,7 +124,7 @@ class Home extends CI_Controller
                                                                         font-weight: 500;
                                                                         ">Gracias por suscribirse</h3>
                                                                     <h6 style="padding-top: 2%;line-height: 1.8em;font-weight: 400;font-family: &quot;Open sans&quot;;font-size: 1.3em;">Se ha verificado su dirección de e-mail y hemos confirmado su suscripción a nuestra lista.</h6>
-                                                                    <h6 style="padding-top: 2%;line-height: 1.8em;font-family: &quot;Open sans&quot;;font-size: 1.3em;">Empresa</h6>
+                                                                    <h6 style="padding-top: 2%;line-height: 1.8em;font-family: &quot;Open sans&quot;;font-size: 1.3em;">'.$this->input->post('contacto_nombre').'</h6>
                                                                     <h6 style="padding-top: 2%;line-height: 1.8em;font-weight: 400;font-family: &quot;Open sans&quot;;font-size: 1.3em;">Automatizado por <a href="https://teayudo.pe/">teayudo.pe</a></h6>
                                                                 </td>
                                                             </tr>
