@@ -186,7 +186,7 @@ class Home extends CI_Controller
 
                                                                                                 <tr>
                                                                                                     <td style="text-align: left;padding: 2% 0% 10% 0%;">
-                                                                                                        
+
                                                                                                         <h6 style="padding-top: 2%;line-height: 1.8em;font-weight: 400;font-family: &quot;Open sans&quot;;font-size: 1.3em;">De: '.$this->input->post('contacto_nombre').'<br>Telefono: '.$this->input->post('contacto_telefono').'<br>Email: '.$this->input->post('contacto_correo').'<br><br>Mensaje: '.$this->input->post('contacto_mensaje').'</h6>
                                     <h6 style="padding-top: 2%;line-height: 1.8em;font-weight: 400;font-family: &quot;Open sans&quot;;font-size: 1.3em;">Mensaje Recibido: '.date('d-m-Y h:i:s').'</h6>
                                                                                                     </td>
@@ -227,10 +227,10 @@ class Home extends CI_Controller
         $data['linea_activa'] = $this->sublinea_model->getLinea($id);
         $data['sublinea_activa'] = $id;
 
-        $this->load->setView('view_content', 'productos/index', $data);
+        //$this->load->setView('view_content', 'productos/index', $data);
         $this->load->setView('view_menu', 'productos/menu');
-        $this->load->setView('view_js', 'productos/js');
-        $this->load->setView('view_wrapper', 'sections/wrapper');
+        //$this->load->setView('view_js', 'productos/js');
+        //$this->load->setView('view_wrapper', 'sections/wrapper');
         $this->load->setView('view_footer', 'sections/footer');
         $this->load->renderView('home');
     }
